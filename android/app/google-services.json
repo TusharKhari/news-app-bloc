@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "665556623752",
+    "firebase_url": "https://pepil-390ab-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "pepil-390ab",
+    "storage_bucket": "pepil-390ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665556623752:android:bb8cef78435bd952929a3d",
+        "android_client_info": {
+          "package_name": "com.example.news_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2MXXXHGuyuGzbqov7WYJTH5iovPZK4E0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

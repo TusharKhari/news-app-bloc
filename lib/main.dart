@@ -1,12 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/application/news_bloc.dart';
+import 'package:news_app/application/auth_bloc/auth_bloc.dart';
 import 'package:news_app/presentation/auth/login_screen.dart';
 
- import 'presentation/utils/constants.dart';
+import 'application/news bloc/news_bloc.dart';
+import 'firebase_options.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -16,22 +22,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Assignment',
-      // theme: ThemeData.dark().copyWith(
-      //   scaffoldBackgroundColor: Pallete.backgroundColor,
-      // ),
-      // theme: ThemeData(
-      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      //   appBarTheme: const AppBarTheme(backgroundColor: Colors.teal),
-      //   useMaterial3: true,
-      // ),
-      home:
-          //
-          BlocProvider(
-        create: (_) => NewsBloc(),
-        child: const LoginScreen(),
-        // child: const NewsScreen(),
-      ),
-    );
+        title: 'Flutter Assignment',
+        // theme: ThemeData.dark().copyWith(
+        //   scaffoldBackgroundColor: Pallete.backgroundColor,
+        // ),
+        // theme: ThemeData(
+        //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        //   appBarTheme: const AppBarTheme(backgroundColor: Colors.teal),
+        //   useMaterial3: true,
+        // ),
+        home: MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => AuthBloc(),
+            ),
+            BlocProvider(
+              create: (context) => NewsBloc(),
+            ),
+          ],
+          child: const LoginScreen(),
+        ));
   }
 }
