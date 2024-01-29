@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/application/news_bloc.dart';
+import 'package:news_app/presentation/auth/login_screen.dart';
 
-import 'presentation/news_screen.dart';
+ import 'presentation/utils/constants.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,16 +17,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Assignment',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.teal),
-        useMaterial3: true,
-      ),
+      // theme: ThemeData.dark().copyWith(
+      //   scaffoldBackgroundColor: Pallete.backgroundColor,
+      // ),
+      // theme: ThemeData(
+      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      //   appBarTheme: const AppBarTheme(backgroundColor: Colors.teal),
+      //   useMaterial3: true,
+      // ),
       home:
           //
           BlocProvider(
         create: (_) => NewsBloc(),
-        child: const NewsScreen(),
+        child: const LoginScreen(),
+        // child: const NewsScreen(),
       ),
     );
   }

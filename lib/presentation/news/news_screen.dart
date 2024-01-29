@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/application/news_bloc.dart';
-import 'package:news_app/presentation/info_toast.dart';
-import 'package:news_app/presentation/news_detail_screen.dart';
+import 'package:news_app/presentation/auth/sign_up_screen.dart';
+import 'package:news_app/presentation/utils/info_toast.dart';
+import 'package:news_app/presentation/news/news_detail_screen.dart';
+import 'package:news_app/presentation/utils/loading_widget.dart';
 
 class NewsScreen extends StatefulWidget {
   const NewsScreen({super.key});
@@ -36,7 +38,8 @@ class _NewsScreenState extends State<NewsScreen> {
       builder: (context, state) {
         if (state is NewsLoadingState) {
           return const Scaffold(
-            body: Center(child: CircularProgressIndicator()),
+            body: AppLoadingWidget(),
+            //Center(child: CircularProgressIndicator()),
           );
         }
         if (state is NewsErrorState) {
@@ -70,6 +73,16 @@ class _NewsScreenState extends State<NewsScreen> {
                   },
                   icon: const Icon(
                     Icons.refresh,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => const SignUpScreen(),
+                    ));
+                  },
+                  icon: const Icon(
+                    Icons.logout,
                   ),
                 ),
               ],
