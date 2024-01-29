@@ -6,7 +6,7 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 
-
+video and apk link both uploaded
 
 vidoe :
 
@@ -21,7 +21,7 @@ https://github.com/TusharKhari/news-app-bloc/assets/88612651/24c2cb0d-ccc6-40e9-
 
 
 
-
+- [Flutter apk link](https://drive.google.com/file/d/1pcNccHRAjt0g_0scK3tA2MUWtljnJwra/view?usp=sharing)
 
 A few resources to get you started if this is your first Flutter project:
 
